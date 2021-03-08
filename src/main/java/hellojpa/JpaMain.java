@@ -84,7 +84,10 @@ public class JpaMain {
             member.setName("AAAAA");
             // 영속성 컨텍스트에서 1차 캐시로 불러와서 값을 변경함. 그러나 커밋전이므로 변경은 안된 상태.
 
-            em.detach(member); // 이렇게 쓰면 준영속 상태가 되므로, 더이상 jpa에서 관리하지않으므로 커밋해도 반영안됨.
+            //em.detach(member); // 이렇게 쓰면 준영속 상태가 되므로, 더이상 jpa에서 관리하지않으므로 커밋해도 반영안됨.
+            em.clear(); //영속성 컨텍스트에 연결된 것들 모두 삭제
+
+            Member member2 = em.find(Member.class, 150L); // clear를 했으니 select가 두번 나갈것. 
 
             System.out.println("===============");
 
