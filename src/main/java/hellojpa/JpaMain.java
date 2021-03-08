@@ -66,6 +66,15 @@ public class JpaMain {
 //            Member findMember2 = em.find(Member.class, 1L);
 //            findMember2.setName("HelloJPA");
 
+            /**
+             * 영속성관리-내부 동작 방식 편
+             * 영속성 컨텍스트 2
+             *
+             * 영속성성
+            */
+
+            // 영속
+            Member member1 = new Member()
             tx.commit();
         }catch (Exception e){
             tx.rollback();
