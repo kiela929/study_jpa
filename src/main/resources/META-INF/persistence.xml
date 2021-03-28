@@ -15,7 +15,16 @@
             <property name="hibernate.show_sql" value="true"/> <!-- 쿼리문이 콘솔창에 보여짐 -->
             <property name="hibernate.format_sql" value="true"/> <!-- 쿼리문이 포맷에 맞게 정렬되어 나옴 -->
             <property name="hibernate.use_sql_comments" value="true"/> <!--쿼리가 왜 나오는건지 insert인지 뭔지 주석처리 뜸 -->
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <property name="hibernate.hbm2ddl.auto" value="none" />
+            <!-- 126p) @Entity 로 정의되어있는 객체테이블을 있으면 지우고 새로 생성함.
+            운영에서는 절대 사용 금지
+            value에 따라서 옵션이 다름.
+            create : 기존 테이블 삭제 후 생성
+            create-drop : create속성에 추가로 애플리케이션 종료할때 생성한 ddl을 제거. drop+create+drop
+            update: 기존에 테이블에서 변경된 것만 새로 추가함. alter table add column 으로 함. 컬럼을 지우는건 하지 않음.
+            validate: 엔티티와 테이블이 정상맵핑 되었는지 확인만 함. 안맞으면 오류를 토함.
+            none: 사용하지 않음.
+            -->
         </properties>
     </persistence-unit>
 </persistence>

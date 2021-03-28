@@ -87,7 +87,7 @@ public class JpaMain {
             //em.detach(member); // 이렇게 쓰면 준영속 상태가 되므로, 더이상 jpa에서 관리하지않으므로 커밋해도 반영안됨.
             em.clear(); //영속성 컨텍스트에 연결된 것들 모두 삭제
 
-            Member member2 = em.find(Member.class, 150L); // clear를 했으니 select가 두번 나갈것. 
+            Member member2 = em.find(Member.class, 150L); // clear를 했으니 select가 두번 나갈것.
 
             System.out.println("===============");
 
